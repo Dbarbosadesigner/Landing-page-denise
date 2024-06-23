@@ -1,16 +1,67 @@
-// scripts.js
-document.addEventListener('DOMContentLoaded', () => {
-    const ctaButton = document.getElementById('cta-button');
-    
-    // Transição de entrada suave
-    document.body.style.opacity = 0;
-    document.body.style.transition = 'opacity 1s';
+/* scripts.js */
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.fade-in');
+
+    function handleScroll() {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check visibility on initial load
+
+    // Slider functionality
+    let slideIndex = 0;
+    showSlides(slideIndex);
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("slide");
+        const dots = document.getElementsByClassName("dot");
+        if (n >= slides.length) { slideIndex = 0 }
+        if (n < 0) { slideIndex = slides.length - 1 }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex].style.display = "block";
+        dots[slideIndex].className += " active";
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n - 1);
+    }
+
+    document.querySelector('.prev').addEventListener('click', function() {
+        plusSlides(-1);
+    });
+
+    document.querySelector('.next').addEventListener('click', function() {
+        plusSlides(1);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            currentSlide(index + 1);
+        });
+    });
+
     window.onload = () => {
-        document.body.style.opacity = 1;
+        document.body.classList.add('loaded');
     };
 
-    // Evento de clique no botão para redirecionar ao WhatsApp
-    ctaButton.addEventListener('click', () => {
-        window.location.href = 'https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20imóveis%20para%20aluguel.';
-    });
+    // Auto slide every 3 seconds
+    setInterval(function() {
+        plusSlides(1);
+    }, 3000);
 });

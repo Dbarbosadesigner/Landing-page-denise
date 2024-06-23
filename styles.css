@@ -1,76 +1,293 @@
-/* styles.css */
+/* Define a fonte padrão e reseta as margens e paddings */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura e altura total */
+    opacity: 1000; /* Torna o corpo invisível inicialmente */
+    transition: opacity 10s ease; /* Transição suave para visibilidade */
 }
 
+/* Quando a classe 'loaded' é adicionada ao corpo */
+body.loaded {
+    opacity: 10; /* Torna o corpo visível */
+}
+
+/* Estilo inicial para os elementos que terão animação de entrada */
+header, .content, .properties, .feedbacks, .slider {
+    opacity: 10; /* Torna os elementos invisíveis inicialmente */
+    transform: translateY(20px); /* Move os elementos 20px para baixo */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Define a transição para opacidade e posição */
+}
+
+/* Quando a classe 'visible' é adicionada aos elementos */
+header.visible, .content.visible, .properties.visible, .feedbacks.visible, .slider.visible {
+    opacity: 0; /* Torna os elementos visíveis */
+    transform: translateY(0); /* Move os elementos para a posição original */
+}
+
+/* Estiliza o cabeçalho */
 header {
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
+    background-color: #007BFF; /* Cor de fundo azul */
+    color: white; /* Texto branco */
+    text-align: center; /* Alinhamento centralizado */
+    padding: 50px 20px; /* Espaçamento interno */
 }
 
+/* Estiliza o título principal do cabeçalho */
 header h1 {
-    font-size: 2.5em;
-    margin: 0;
+    font-size: 2.5em; /* Tamanho da fonte grande */
+    margin: 0; /* Remove a margem */
 }
 
+/* Estiliza o parágrafo do cabeçalho */
 header p {
-    font-size: 1.2em;
-    margin: 10px 0;
+    font-size: 1.2em; /* Tamanho da fonte médio */
+    margin: 10px 0; /* Margem vertical de 10px */
 }
 
+/* Estiliza o botão de chamada para ação */
 #cta-button {
-    background-color: #25D366;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    background-color: #25D366; /* Cor de fundo verde */
+    color: white; /* Texto branco */
+    border: none; /* Remove borda */
+    padding: 15px 25px; /* Espaçamento interno */
+    font-size: 1em; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave para mudança de cor */
 }
 
+/* Estiliza o botão ao passar o mouse */
 #cta-button:hover {
-    background-color: #1DA851;
+    background-color: #1DA851; /* Cor de fundo verde mais escuro */
 }
 
+/* Estiliza a seção de conteúdo */
 .content {
-    padding: 20px;
+    padding: 20px; /* Espaçamento interno */
 }
 
+/* Estiliza os títulos da seção de conteúdo */
 .content h2 {
-    font-size: 1.8em;
-    color: #007BFF;
+    font-size: 1.8em; /* Tamanho da fonte grande */
+    color: #007BFF; /* Cor do texto azul */
 }
 
+/* Estiliza os parágrafos da seção de conteúdo */
 .content p {
-    font-size: 1em;
-    color: #333;
-    line-height: 1.6;
+    font-size: 1em; /* Tamanho da fonte padrão */
+    color: #333; /* Cor do texto cinza escuro */
+    line-height: 1.6; /* Altura da linha */
 }
 
+/* Estiliza a seção de propriedades */
+.properties {
+    padding: 20px; /* Espaçamento interno */
+    display: flex; /* Display flexível */
+    flex-wrap: wrap; /* Permite que os itens flexíveis se quebrem em várias linhas */
+    justify-content: space-around; /* Espaçamento uniforme entre os itens */
+}
+
+/* Estiliza cada propriedade */
+.property {
+    margin: 10px; /* Margem em torno de cada propriedade */
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde o conteúdo que transborda */
+    width: 300px; /* Largura fixa */
+    transition: transform 0.3s; /* Transição suave para transformação */
+}
+
+/* Estiliza as imagens das propriedades */
+.property img {
+    width: 100%; /* Largura total */
+    height: auto; /* Altura automática */
+    display: block; /* Display de bloco */
+}
+
+/* Estiliza os parágrafos das propriedades */
+.property p {
+    padding: 10px; /* Espaçamento interno */
+    background-color: #f8f9fa; /* Cor de fundo cinza claro */
+    margin: 0; /* Remove a margem */
+    text-align: center; /* Alinhamento centralizado */
+    font-size: 1em; /* Tamanho da fonte padrão */
+}
+
+/* Estiliza a propriedade ao passar o mouse */
+.property:hover {
+    transform: scale(1.05); /* Aumenta o tamanho em 5% */
+}
+
+.btn1{
+    padding: 0.5rem;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 119, 255);
+    border: 1px solid rgb(2, 70, 158);
+    border-radius: 8px;
+    background-color: rgb(94, 160, 247);
+}
+
+/* Estiliza a seção de feedbacks */
+.feedbacks {
+    padding: 20px; /* Espaçamento interno */
+    background-color: #ffffff; /* Cor de fundo cinza claro */
+    text-align: center; /* Alinhamento centralizado */
+}
+
+/* Estiliza os títulos da seção de feedbacks */
+.feedbacks h2 {
+    font-size: 1.8em; /* Tamanho da fonte grande */
+    color: #007BFF; /* Cor do texto azul */
+}
+
+/* Estiliza cada feedback */
+.feedback {
+    margin: 20px 0; /* Margem vertical */
+    padding: 20px; /* Espaçamento interno */
+    background-color: rgb(135, 211, 255); /* Cor de fundo branco */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra leve */
+    transition: transform 0.3s; /* Transição suave para transformação */
+}
+
+/* Estiliza o feedback ao passar o mouse */
+.feedback:hover {
+    transform: scale(1.05); /* Aumenta o tamanho em 5% */
+}
+
+/* Estiliza a seção de slides */
+.slider {
+    position: relative; /* Posição relativa */
+    max-width: 1000px; /* Largura máxima */
+    margin: auto; /* Centraliza horizontalmente */
+    text-align: center; /* Alinhamento centralizado */
+}
+
+/* Contêiner dos slides */
+.slide-container {
+    position: relative; /* Posição relativa */
+}
+
+/* Esconde os slides por padrão */
+.slide {
+    display: none; /* Display none */
+}
+
+/* Estiliza as imagens dos slides */
+.slide img {
+    width: 100%; /* Largura total */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estiliza o texto sobre os slides */
+.text {
+    color: #f2f2f2; /* Cor do texto branco claro */
+    font-size: 1.2em; /* Tamanho da fonte */
+    padding: 8px 12px; /* Espaçamento interno */
+    position: absolute; /* Posição absoluta */
+    bottom: 8px; /* Distância da parte inferior */
+    width: 100%; /* Largura total */
+    text-align: center; /* Alinhamento centralizado */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+}
+
+/* Estiliza os botões de navegação */
+.prev, .next {
+    cursor: pointer; /* Cursor de ponteiro */
+    position: absolute; /* Posição absoluta */
+    top: 50%; /* Centraliza verticalmente */
+    width: auto; /* Largura automática */
+    padding: 16px; /* Espaçamento interno */
+    margin-top: -22px; /* Move para cima */
+    color: white; /* Cor do texto branco */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 18px; /* Tamanho da fonte */
+    transition: 0.6s ease; /* Transição suave */
+    border-radius: 0 3px 3px 0; /* Bordas arredondadas */
+    user-select: none; /* Desabilita a seleção do texto */
+}
+
+/* Estiliza o botão 'next' (próximo) */
+.next {
+    right: 0; /* Alinha à direita */
+    border-radius: 3px 0 0 3px; /* Bordas arredondadas */
+}
+
+/* Estiliza os botões de navegação ao passar o mouse */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8); /* Fundo semitransparente escuro */
+}
+
+/* Estiliza os pontos de navegação */
+.dot {
+    cursor: pointer; /* Cursor de ponteiro */
+    height: 15px; /* Altura */
+    width: 15px; /* Largura */
+    margin: 0 2px; /* Margem horizontal */
+    background-color: #bbb; /* Cor de fundo cinza */
+    border-radius: 50%; /* Formato circular */
+    display: inline-block; /* Display inline-block */
+    transition: background-color 0.6s ease; /* Transição suave */
+}
+
+/* Estiliza o ponto ativo e ao passar o mouse */
+.active, .dot:hover {
+    background-color: #717171; /* Cor de fundo cinza escuro */
+}
+
+/* Estiliza o rodapé */
 footer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 10px 20px;
-    border-top: 1px solid #ddd;
+    background-color: #f8f9fa; /* Cor de fundo cinza claro */
+    text-align: center; /* Alinhamento centralizado */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-top: 1px solid #ddd; /* Borda superior */
 }
 
+/* Estilos para telas menores */
 @media (max-width: 768px) {
+    /* Ajusta o espaçamento do cabeçalho */
     header {
         padding: 30px 20px;
     }
 
+    /* Ajusta o tamanho da fonte do título do cabeçalho */
     header h1 {
         font-size: 2em;
     }
 
+    /* Ajusta o espaçamento do botão */
     #cta-button {
         padding: 10px 20px;
         font-size: 0.9em;
+    }
+
+    /* Alinha propriedades em coluna */
+    .properties {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Ajusta a largura das propriedades */
+    .property {
+        width: 90%;
+    }
+
+    /* Ajusta a largura dos feedbacks */
+    .feedback {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    /* Ajusta a largura do slider */
+    .slider {
+        width: 100%;
+    }
+
+    /* Ajusta a largura das imagens do slider */
+    .slide img {
+        width: 100%;
     }
 }

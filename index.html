@@ -5,19 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imobiliária - Aluguel de Temporada e Fixo</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="script.js">
 </head>
 <body>
-    <header>
+    <header class="fade-in">
         <h1>Bem-vindo à Imobiliária XYZ</h1>
         <p>Encontre o imóvel perfeito para aluguel de temporada ou fixo!</p>
         <button id="cta-button">Fale conosco no WhatsApp</button>
     </header>
-    <section class="content">
+    <section class="content fade-in">
         <h2>Aluguel para Temporada</h2>
         <p>Oferecemos as melhores opções de aluguel para temporada. Encontre casas e apartamentos nas melhores localizações.</p>
         <h2>Aluguel Fixo</h2>
         <p>Procurando um lugar para chamar de lar? Temos diversas opções de aluguel fixo que atendem todas as necessidades.</p>
+    </section>
+    <section class="properties fade-in">
+        <h2>Imóveis Disponíveis</h2>
+        <div class="property">
+            <img src="casa 1.jpg" alt="Imagem do imóvel 1">
+            <a href="casa1Pg2.html"><button class="btn1">Casa 1</button></a>
+        </div>
+        <div class="property">
+            <img src="casa 2.jpg" alt="Imagem do imóvel 2">
+            <a href="casa2Pg2.html"><button class="btn1">Casa 2</button></a>
+        </div>
+        <div class="property">
+            <img src="casa 3.jpg" alt="Imagem do imóvel 3">
+            <a href="casa3Pg2.html"><button class="btn1">Casa 3</button></a>
+        </div>
+    </section>
+    <section class="feedbacks fade-in">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="feedback">
+            <p>"Excelente atendimento e imóveis de qualidade. Recomendo a todos!"</p>
+            <p><strong>- João Silva</strong></p>
+        </div>
+        <div class="feedback">
+            <p>"Encontrei o imóvel perfeito para minhas férias. Muito obrigado!"</p>
+            <p><strong>- Maria Oliveira</strong></p>
+        </div>
+        <div class="feedback">
+            <p>"Serviço profissional e atencioso. Encontrei minha nova casa rapidamente."</p>
+            <p><strong>- Carlos Souza</strong></p>
+        </div>
+    </section>
+    <section class="slider fade-in">
+        <h2>Imóveis em Destaque</h2>
+        <div class="slide-container">
+            <div class="slide fade">
+                <img src="imovel1.jpg" style="width:100%">
+                <div class="text">Imóvel 1 - Rua A, 123 - Bairro X</div>
+            </div>
+            <div class="slide fade">
+                <img src="imovel2.jpg" style="width:100%">
+                <div class="text">Imóvel 2 - Rua B, 456 - Bairro Y</div>
+            </div>
+            <div class="slide fade">
+                <img src="imovel3.jpg" style="width:100%">
+                <div class="text">Imóvel 3 - Rua C, 789 - Bairro Z</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
     </section>
     <footer>
         <p>&copy; 2024 Imobiliária XYZ. Todos os direitos reservados.</p>
